@@ -1,9 +1,36 @@
-import React from "react";
-import { useEffect } from "react";
-import { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 import { Form } from "react-router-dom";
-import Test from "./Test";
+import ExerciseGridForm from "./ExerciseGridForm";
+import styled from "styled-components";
+
+const Container = styled.div`
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+const Label = styled.label`
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+const Button = styled.button`
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 const AddWorkoutForm = ({ closeModal }) => {
   const formRef = useRef();
@@ -13,38 +40,42 @@ const AddWorkoutForm = ({ closeModal }) => {
 
   useEffect(() => {
     if (!isSubmitting) {
-      // close the tab or modal
+      formRef.current.reset();
+      closeModal();
     }
   }, [isSubmitting]);
+
   return (
-    <>
+    <Container>
       <fetcher.Form method="post" ref={formRef}>
         <div>
-          <label>Routine Name</label>
-          <input
-            text="text"
+          <Label htmlFor="routine_name">Routine Name</Label>
+          <Input
+            type="text"
             name="routine_name"
+            id="routine_name"
             required
             placeholder="Routine Name"
             ref={focusRef}
           />
         </div>
-        <br></br>
         <div>
-          <label>Routine Description</label>
-          <input
-            text="text"
+          <Label htmlFor="descriptions">Routine Description</Label>
+          <Input
+            type="text"
             name="descriptions"
+            id="descriptions"
             required
             placeholder="Routine Description"
           />
         </div>
+        <ExerciseGridForm />
         <input type="hidden" name="_action" value="newWorkout" />
-        <button type="submit">
+        <Button type="submit">
           <span>Create Routine</span>
-        </button>
+        </Button>
       </fetcher.Form>
-    </>
+    </Container>
   );
 };
 

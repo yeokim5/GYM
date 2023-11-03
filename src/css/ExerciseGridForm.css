@@ -1,0 +1,83 @@
+/* Add these styles in your "ExerciseGridForm.css" file */
+
+.exercise-grid-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+}
+
+.body-names {
+  width: 20%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Add this property to enable scrolling if needed */
+}
+
+.body-names div {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.body-names div.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.exercise-names {
+  flex: 1;
+}
+
+.scrollable-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: space-between; /* Align button to the right */
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+.grid-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Style the "Show Image" button */
+.grid-item button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.grid-item button:hover {
+  background-color: #0056b3;
+}
+.exercise-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: auto; /* Add overflow for scrolling if the image is larger than the popup */
+}
+
+.exercise-popup img {
+  max-width: 100%; /* Ensure the image does not exceed the popup width */
+  max-height: 100%; /* Ensure the image does not exceed the popup height */
+}

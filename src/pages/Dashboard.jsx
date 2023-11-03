@@ -9,6 +9,7 @@ import Intro from "../components/Intro.jsx";
 import AddWorkoutForm from "../components/AddWorkoutForm.jsx";
 import WorkoutItem from "../components/WorkoutItem.jsx";
 import Test from "../components/Test.jsx";
+import TestFormat from "../components/TestFormat.jsx";
 
 // loader
 export function dashboardLoader() {
@@ -70,7 +71,7 @@ const Dashboard = () => {
       {userName ? (
         <div>
           <h1>Welcome, {userName}</h1>
-
+          {/* <TestFormat /> */}
           <div>
             <Test workouts={workouts} />
             {workouts && workouts.length > 0 ? (
