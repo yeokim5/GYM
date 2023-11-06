@@ -4,7 +4,12 @@ import "../css/ExerciseGridForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 
-const ExerciseGridForm = () => {
+const ExerciseGridForm = ({
+  exerciseList,
+  setExerciseList,
+  exerciseListIndex,
+  setExerciseListIndex,
+}) => {
   const [selectedKey, setSelectedKey] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState("");
@@ -64,7 +69,22 @@ const ExerciseGridForm = () => {
         {selectedKey !== "" && (
           <div className="scrollable-container">
             {exerciseDB[selectedKey].map((exercise, index) => (
-              <div key={index} id={exercise.id} className="grid-item">
+              <div
+                key={index}
+                id={exercise.id}
+                className="grid-item"
+                onClick={() => {
+                  if (!exerciseList.includes(exercise.name)) {
+                    setExerciseList([...exerciseList, exercise.name]);
+                  }
+                  if (!exerciseListIndex.includes(exercise.index)) {
+                    setExerciseListIndex([
+                      ...exerciseListIndex,
+                      exercise.index,
+                    ]);
+                  }
+                }}
+              >
                 {exercise.name}
                 <button
                   type="button"

@@ -50,11 +50,7 @@ const Test = ({ workouts }) => {
 
       <div style={modalStyle} className="modal">
         <div style={modalContentStyle} className="modal-content">
-          <span style={closeStyle} className="close" onClick={closeModal}>
-            &times;
-          </span>
-
-          <AddWorkoutForm closeModal={closeModal} />
+          <AddWorkoutForm closeModal={closeModal} closeStyle={closeStyle} />
         </div>
       </div>
     </>

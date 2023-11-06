@@ -41,6 +41,7 @@ export async function dashboardAction({ request }) {
       createRoutine({
         name: values.routine_name,
         descriptions: values.descriptions,
+        exercise: values.exercise,
       });
       return toast.success(`New Routine ${values.routine_name} created!`);
     } catch (error) {

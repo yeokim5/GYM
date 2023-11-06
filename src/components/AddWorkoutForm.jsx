@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFetcher } from "react-router-dom";
 import { Form } from "react-router-dom";
 import ExerciseGridForm from "./ExerciseGridForm";
@@ -32,23 +32,35 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const AddWorkoutForm = ({ closeModal }) => {
+const AddWorkoutForm = ({ closeModal, closeStyle }) => {
   const formRef = useRef();
   const focusRef = useRef();
   const fetcher = useFetcher();
+  const [exerciseList, setExerciseList] = useState([]);
+  const [exerciseListIndex, setExerciseListIndex] = useState([]);
+
   const isSubmitting = fetcher.state === "submitting";
 
   useEffect(() => {
     if (!isSubmitting) {
-      formRef.current.reset();
       closeModal();
     }
   }, [isSubmitting]);
 
+  useEffect(() => {
+    formRef.current.reset();
+    setExerciseList([]);
+    setExerciseListIndex([]);
+  }, [closeModal]);
+
   return (
     <Container>
+      <span style={closeStyle} className="close" onClick={closeModal}>
+        &times;
+      </span>
       <fetcher.Form method="post" ref={formRef}>
         <div>
+          <h1>{exerciseList}</h1>
           <Label htmlFor="routine_name">Routine Name</Label>
           <Input
             type="text"
@@ -69,7 +81,13 @@ const AddWorkoutForm = ({ closeModal }) => {
             placeholder="Routine Description"
           />
         </div>
-        <ExerciseGridForm />
+        <ExerciseGridForm
+          exerciseList={exerciseList}
+          setExerciseList={setExerciseList}
+          exerciseListIndex={exerciseListIndex}
+          setExerciseListIndex={setExerciseListIndex}
+        />
+        <input type="hidden" name="exercise" value={exerciseListIndex} />
         <input type="hidden" name="_action" value="newWorkout" />
         <Button type="submit">
           <span>Create Routine</span>
