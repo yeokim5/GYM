@@ -90,6 +90,9 @@ const ExerciseGridForm = ({
                   type="button"
                   onMouseDown={() => handleExerciseClick(exercise)}
                   onTouchStart={(event) => handleTouchStart(exercise, event)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                 >
                   <FontAwesomeIcon icon={faImage} />
                 </button>

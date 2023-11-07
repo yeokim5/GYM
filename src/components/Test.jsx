@@ -13,7 +13,6 @@ const Test = ({ workouts }) => {
   const closeModal = () => {
     setFormVisible(false);
   };
-
   const modalStyle = {
     display: isFormVisible ? "block" : "none",
     position: "fixed",
@@ -30,6 +29,9 @@ const Test = ({ workouts }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
+    width: "60%", // Adjust the width as needed
+    maxHeight: "90%", // Adjust the maximum height as needed
+    overflow: "auto", // Add overflow to handle content that exceeds the modal size
     backgroundColor: "#fff",
     padding: "20px",
     borderRadius: "5px",
@@ -38,8 +40,8 @@ const Test = ({ workouts }) => {
 
   const closeStyle = {
     position: "absolute",
-    top: "10px",
-    right: "10px",
+    top: "0",
+    right: "5px",
     fontSize: "20px",
     cursor: "pointer",
   };
