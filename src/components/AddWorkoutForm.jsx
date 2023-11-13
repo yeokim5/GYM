@@ -124,7 +124,12 @@ const AddWorkoutForm = ({ closeModal, closeStyle }) => {
           required
           placeholder="Routine Description"
         />
-
+        {exerciseList.length > 0 && (
+          <SubHeader>
+            Saved Workout: {exerciseList.join(", ")}
+            <CheckmarkIcon>✔</CheckmarkIcon>
+          </SubHeader>
+        )}
         <ExerciseGridForm
           exerciseList={exerciseList}
           setExerciseList={setExerciseList}
@@ -134,13 +139,6 @@ const AddWorkoutForm = ({ closeModal, closeStyle }) => {
 
         <input type="hidden" name="exercise" value={exerciseListIndex} />
         <input type="hidden" name="_action" value="newWorkout" />
-
-        {exerciseList.length > 0 && (
-          <SubHeader>
-            Saved Workout: {exerciseList.join(", ")}
-            <CheckmarkIcon>✔</CheckmarkIcon>
-          </SubHeader>
-        )}
 
         <Button type="submit">
           <span>Create Routine</span>

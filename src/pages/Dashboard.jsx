@@ -10,7 +10,9 @@ import AddWorkoutForm from "../components/AddWorkoutForm.jsx";
 import WorkoutItem from "../components/WorkoutItem.jsx";
 import Test from "../components/Test.jsx";
 import TestFormat from "../components/TestFormat.jsx";
-
+//css
+import "../css/WorkoutItem.css";
+import "../css/Dashboard.css";
 // loader
 export function dashboardLoader() {
   const userName = fetchData("userName");
@@ -71,16 +73,16 @@ const Dashboard = () => {
     <>
       {userName ? (
         <div>
-          <h1>Welcome, {userName}</h1>
+          <h1 className="dashboard-heading">Welcome, {userName}</h1>
+
           {/* <TestFormat /> */}
           <div>
             <Test workouts={workouts} />
             {workouts && workouts.length > 0 ? (
-              <div>
+              <div className="workout-cards-container">
                 {workouts.map((workout) => (
                   <React.Fragment key={workout.id}>
                     <WorkoutItem workout={workout} />
-                    <br />
                   </React.Fragment>
                 ))}
               </div>

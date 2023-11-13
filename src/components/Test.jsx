@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import AddWorkoutForm from "./AddWorkoutForm";
-
+import "../css/Test.css";
 const Test = ({ workouts }) => {
   const [isFormVisible, setFormVisible] = useState(false);
 
@@ -48,7 +48,9 @@ const Test = ({ workouts }) => {
 
   return (
     <>
-      <button onClick={openModal}>Create Routine</button>
+      <button onClick={openModal} className="button-28">
+        Create Routine
+      </button>
 
       <div style={modalStyle} className="modal">
         <div style={modalContentStyle} className="modal-content">
