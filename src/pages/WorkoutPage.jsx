@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { getAllMatchingItems } from "../functions/helpers";
+import { getAllMatchingItems } from "../functions2/helpers";
 import exerciseDB from "../DB/exercise.json";
 import "../css/WorkoutPage.css";
 import { useState } from "react";

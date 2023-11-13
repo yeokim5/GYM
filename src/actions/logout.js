@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { deleteItem } from "../functions/helpers";
+import { deleteItem } from "../functions2/helpers";
 import { toast } from "react-toastify";
 
 export async function logoutAction() {

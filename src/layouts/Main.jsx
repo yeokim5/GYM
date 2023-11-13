@@ -1,5 +1,5 @@
 import { Outlet, useLoaderData } from "react-router-dom";
-import { fetchData } from "../functions/helpers.js";
+import { fetchData } from "../functions2/helpers.js";
 import Nav from "../components/Nav.jsx";
 
 // loader

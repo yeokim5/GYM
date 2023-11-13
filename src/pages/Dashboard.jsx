@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useLoaderData } from "react-router-dom";
 import React from "react";
 //  helper functions
-import { createRoutine, deleteItem, fetchData } from "../functions/helpers.js";
+import { createRoutine, deleteItem, fetchData } from "../functions2/helpers.js";
 import Intro from "../components/Intro.jsx";
 import AddWorkoutForm from "../components/AddWorkoutForm.jsx";
 import WorkoutItem from "../components/WorkoutItem.jsx";
