@@ -1,4 +1,5 @@
 {
+  "homepage": "https://yeokim5.github.io/gym",
   "name": "gym",
   "private": true,
   "version": "0.0.0",
@@ -9,9 +10,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://yeokim5.github.io/gym",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -24,7 +24,7 @@
     "heroicons": "^2.0.18",
     "install": "^0.13.0",
     "js-confetti": "^0.11.0",
-    "pnpm": "^8.10.2",
+    "pnpm": "^8.10.4",
     "puppeteer": "^21.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
